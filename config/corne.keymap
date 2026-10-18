@@ -134,7 +134,7 @@
         };
 
         caps-lock {
-            bindings = <&kp CAPSLOCK>;
+            bindings = <&kt CAPSLOCK>;
             key-positions = <5 6>;
         };
     };
