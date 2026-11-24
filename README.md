@@ -128,7 +128,14 @@ CONFIG_NICE_OLED_WIDGET_MODIFIERS_INDICATORS_FIXED_SYMBOL_WINDOWS=y
 CONFIG_NICE_OLED_WIDGET_INVERTED=y
 ```
 
-**Pokemon "diam" di kanan.** Modul tidak punya gambar diam Pokemon, jadi animasinya diperlambat. Ada 48 frame, sehingga 480000 ms berarti ganti gambar setiap 10 detik. Jangan lebih dari ~2000000, karena perhitungan animasi LVGL bisa overflow dan frame jadi melompat-lompat.
+**Menyembunyikan gambar/animasi di kanan.** Modul selalu menggambar sesuatu di kanan: kalau animasi dan gambar diam sama-sama mati, yang muncul kristal acak. Karena itu animasinya dimatikan (supaya hemat baterai) lalu gambarnya digeser keluar layar. Status baterai dan koneksi di kanan tetap tampil.
+```
+CONFIG_NICE_OLED_WIDGET_ANIMATION_PERIPHERAL=n
+CONFIG_NICE_OLED_WIDGET_STATIC_IMAGE_PERIPHERAL=n
+CONFIG_NICE_OLED_WIDGET_ANIMATION_PERIPHERAL_CUSTOM_Y=200
+```
+
+**Pokemon "diam" di kanan** (tidak dipakai lagi karena terlihat buggy). Modul tidak punya gambar diam Pokemon, jadi animasinya diperlambat. Ada 48 frame, sehingga 480000 ms berarti ganti gambar setiap 10 detik. Jangan lebih dari ~2000000, karena perhitungan animasi LVGL bisa overflow.
 ```
 CONFIG_NICE_OLED_WIDGET_ANIMATION_PERIPHERAL_CAT=n
 CONFIG_NICE_OLED_WIDGET_ANIMATION_PERIPHERAL_POKEMON=y
